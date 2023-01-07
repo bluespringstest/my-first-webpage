@@ -1,5 +1,5 @@
 const Page = () => {
-    return <h1>Our Single moment</h1>
+    return <h1>A Single moment</h1>
 };
 
 export default Page;

@@ -2,7 +2,6 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { Inter } from '@next/font/google'
 import styles from '../styles/Home.module.css'
-import { JsonObjectExpressionStatement } from 'typescript'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,7 +18,6 @@ const inter = Inter({ subsets: ['latin'] })
 
 export async function getServerSideProps() {
   const data = await import('../data/test.data.json');
-  console.log(data.events_categories);
   return {
     props: {
       data: data.events_categories
@@ -49,9 +47,8 @@ export default function Home({data}: data) {
         {
         data.map((me): JSX.Element => (
           <a key={me.id} href={`/key-moments/${me.id}`}>
-              <Image alt='is a stock image' width={50} height={50} src={me.image} /> 
+              <Image alt={me.title} width={200} height={100} src={me.image} /> 
               <h2>{me.title}</h2>
-            
             </a>))}
         <a href='/key-moments/sectionForLondon'>
           <img />
@@ -67,7 +64,7 @@ export default function Home({data}: data) {
           <p>Life post-breakup</p>
           </div>
         </a>
-        <a href='/key-moments/sectionForPostCapita'>
+        <a href='/key-moments/sectionForPostConsulting'>
           <img />
           <div>
           <h2>Section for post Capita</h2>
